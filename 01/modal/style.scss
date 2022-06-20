@@ -1,0 +1,108 @@
+:root {
+    background-color: darken(white, 90);
+    color: silver;
+    line-height: 1.6;
+}
+
+* {
+    box-sizing: border-box;
+
+    &::before,
+    &::after {
+        box-sizing: inherit;
+    }
+}
+
+.modal {
+    background-color: rgba(white, 0.7);
+    color: black;
+    max-width: 800px;
+    border-radius: 5px;
+
+    &-container {
+        position: fixed;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 30px;
+        border-radius: 4px;
+
+        &--hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        background-color: rgba(black, 0.6);
+    }
+
+    &__header {
+        h1 {
+            margin: 0;
+
+        }
+
+        &__navigation {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid;
+        }
+    }
+
+    &__container {
+        padding: 20px;
+    }
+}
+
+.button {
+    --size: 30px;
+
+    width: var(--size);
+    height: var(--size);
+    border: 0;
+    transition: 300ms ease;
+
+    &--close {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        background-color: transparent;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken(red, 10);
+            color: white;
+        }
+
+        &:active {
+            background-color: darken(red, 15);
+            transition: none;
+        }
+    }
+}
+
+hr {
+    border: 0;
+    border-bottom: 1px solid;
+    margin: 20px auto;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+}
+
+.fadeIn {
+    animation: 300ms ease fadeIn 1;
+}
